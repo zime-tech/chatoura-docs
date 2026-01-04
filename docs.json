@@ -4,8 +4,8 @@
   "name": "Chatoura",
   "colors": {
     "primary": "#171717",
-    "light": "#C9593A",
-    "dark": "#A84A2A"
+    "light": "#E5E5E5",
+    "dark": "#171717"
   },
   "background": {
     "color": {
