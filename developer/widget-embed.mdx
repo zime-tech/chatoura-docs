@@ -1,0 +1,195 @@
+---
+title: "Widget Embed Guide"
+description: "Technical guide for embedding the chat widget"
+---
+
+This guide covers the technical details of embedding the Chatoura chat widget on your website.
+
+## Basic Installation
+
+Add the script before the closing `</body>` tag:
+
+```html
+<script
+  src="https://widget.chatoura.com/embed.js"
+  data-agent-id="YOUR_AGENT_ID"
+  async
+></script>
+```
+
+Replace `YOUR_AGENT_ID` with your agent's ID from the dashboard.
+
+## Finding Your Agent ID
+
+1. Go to **Agents** > select your agent
+2. Click **Integrations** > **Web Widget**
+3. Copy the agent ID from the embed code
+
+## Script Attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| `data-agent-id` | Yes | Your agent's unique identifier |
+| `data-position` | No | Widget position (`bottom-right`, `bottom-left`) |
+| `data-primary-color` | No | Primary color (hex code) |
+| `data-auto-open` | No | Auto-open widget (`true`, `false`) |
+| `data-delay` | No | Delay before auto-open (ms) |
+| `async` | Recommended | Load script asynchronously |
+
+## Installation Examples
+
+### Standard HTML
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+</head>
+<body>
+  <!-- Your content -->
+
+  <script
+    src="https://widget.chatoura.com/embed.js"
+    data-agent-id="abc123"
+    async
+  ></script>
+</body>
+</html>
+```
+
+### React / Next.js
+
+```jsx
+import { useEffect } from 'react';
+
+function ChatWidget() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://widget.chatoura.com/embed.js';
+    script.async = true;
+    script.setAttribute('data-agent-id', 'YOUR_AGENT_ID');
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return null;
+}
+
+export default ChatWidget;
+```
+
+### Vue.js
+
+```vue
+<template>
+  <div></div>
+</template>
+
+<script>
+export default {
+  mounted() {
+    const script = document.createElement('script');
+    script.src = 'https://widget.chatoura.com/embed.js';
+    script.async = true;
+    script.setAttribute('data-agent-id', 'YOUR_AGENT_ID');
+    document.body.appendChild(script);
+  },
+  beforeUnmount() {
+    const script = document.querySelector(
+      'script[src="https://widget.chatoura.com/embed.js"]'
+    );
+    if (script) script.remove();
+  }
+};
+</script>
+```
+
+### Angular
+
+```typescript
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+@Component({
+  selector: 'app-chat-widget',
+  template: ''
+})
+export class ChatWidgetComponent implements OnInit, OnDestroy {
+  private script: HTMLScriptElement;
+
+  ngOnInit() {
+    this.script = document.createElement('script');
+    this.script.src = 'https://widget.chatoura.com/embed.js';
+    this.script.async = true;
+    this.script.setAttribute('data-agent-id', 'YOUR_AGENT_ID');
+    document.body.appendChild(this.script);
+  }
+
+  ngOnDestroy() {
+    if (this.script) {
+      document.body.removeChild(this.script);
+    }
+  }
+}
+```
+
+## Single Page Applications (SPA)
+
+For SPAs, ensure the script is only loaded once:
+
+```javascript
+function loadChatWidget(agentId) {
+  // Check if already loaded
+  if (window.Chatoura) return;
+
+  const script = document.createElement('script');
+  script.src = 'https://widget.chatoura.com/embed.js';
+  script.async = true;
+  script.setAttribute('data-agent-id', agentId);
+  document.body.appendChild(script);
+}
+```
+
+## Content Security Policy (CSP)
+
+If your site uses CSP, add these directives:
+
+```
+script-src 'self' https://widget.chatoura.com;
+style-src 'self' 'unsafe-inline' https://widget.chatoura.com;
+connect-src 'self' https://api.chatoura.com wss://api.chatoura.com;
+frame-src 'self' https://widget.chatoura.com;
+```
+
+## Verifying Installation
+
+After adding the script:
+
+1. Open your website
+2. Look for the chat bubble in the corner
+3. Click to open and test a message
+4. Check **Chat History** to see the test session
+
+## Common Issues
+
+<AccordionGroup>
+  <Accordion title="Widget not appearing">
+    - Verify script is before `</body>`
+    - Check agent ID is correct
+    - Look for JavaScript errors in console
+    - Ensure no ad blockers are interfering
+  </Accordion>
+  <Accordion title="Multiple widgets appearing">
+    - Script may be included more than once
+    - Check for duplicate script tags
+    - In SPAs, ensure proper cleanup on navigation
+  </Accordion>
+  <Accordion title="Widget conflicts with other scripts">
+    - Widget uses Shadow DOM for style isolation
+    - Check for global event listeners interfering
+    - Contact support with specific error messages
+  </Accordion>
+</AccordionGroup>

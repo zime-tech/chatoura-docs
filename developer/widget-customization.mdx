@@ -1,0 +1,249 @@
+---
+title: "Widget Customization"
+description: "Customize widget appearance and behavior"
+---
+
+Customize the chat widget to match your brand and user experience requirements.
+
+## Visual Customization
+
+### Colors
+
+Set the primary color using a hex code:
+
+```html
+<script
+  src="https://widget.chatoura.com/embed.js"
+  data-agent-id="YOUR_AGENT_ID"
+  data-primary-color="#6366F1"
+  async
+></script>
+```
+
+### Position
+
+Place the widget on the left or right:
+
+```html
+<!-- Bottom right (default) -->
+<script ... data-position="bottom-right"></script>
+
+<!-- Bottom left -->
+<script ... data-position="bottom-left"></script>
+```
+
+## Behavior Customization
+
+### Auto-Open
+
+Automatically open the widget after a delay:
+
+```html
+<script
+  src="https://widget.chatoura.com/embed.js"
+  data-agent-id="YOUR_AGENT_ID"
+  data-auto-open="true"
+  data-delay="3000"
+  async
+></script>
+```
+
+| Attribute | Description |
+|-----------|-------------|
+| `data-auto-open` | Enable auto-open (`true`/`false`) |
+| `data-delay` | Delay in milliseconds before opening |
+
+## JavaScript API
+
+Control the widget programmatically using the global `Chatoura` object.
+
+### Opening and Closing
+
+```javascript
+// Open the widget
+window.Chatoura.open();
+
+// Close the widget
+window.Chatoura.close();
+
+// Toggle open/closed
+window.Chatoura.toggle();
+```
+
+### Sending Messages
+
+```javascript
+// Send a message from the user
+window.Chatoura.sendMessage('Hello!');
+```
+
+### Event Listeners
+
+```javascript
+// Widget opened
+window.Chatoura.on('open', () => {
+  console.log('Widget opened');
+});
+
+// Widget closed
+window.Chatoura.on('close', () => {
+  console.log('Widget closed');
+});
+
+// Message received
+window.Chatoura.on('message', (message) => {
+  console.log('New message:', message);
+});
+```
+
+### Setting User Data
+
+Pre-fill user information:
+
+```javascript
+window.Chatoura.setUser({
+  name: 'John Doe',
+  email: 'john@example.com',
+  phone: '+1234567890'
+});
+```
+
+## Custom Triggers
+
+Open the widget from custom elements:
+
+```html
+<button onclick="window.Chatoura.open()">
+  Chat with us
+</button>
+```
+
+Or with event listeners:
+
+```javascript
+document.getElementById('chat-button').addEventListener('click', () => {
+  window.Chatoura.open();
+});
+```
+
+## Conditional Loading
+
+Load the widget based on conditions:
+
+```javascript
+// Only load on specific pages
+if (window.location.pathname.includes('/support')) {
+  loadChatWidget('YOUR_AGENT_ID');
+}
+
+// Only load for logged-in users
+if (isUserLoggedIn()) {
+  loadChatWidget('YOUR_AGENT_ID');
+}
+
+// Load after user interaction
+document.getElementById('help-button').addEventListener('click', () => {
+  loadChatWidget('YOUR_AGENT_ID');
+  window.Chatoura.open();
+});
+```
+
+## Hiding the Default Button
+
+If you want to use only custom triggers:
+
+```html
+<script
+  src="https://widget.chatoura.com/embed.js"
+  data-agent-id="YOUR_AGENT_ID"
+  data-hide-button="true"
+  async
+></script>
+```
+
+Then trigger with your own button:
+
+```html
+<button onclick="window.Chatoura.open()">
+  Need help?
+</button>
+```
+
+## Mobile Considerations
+
+### Full-Screen Mode
+
+On mobile devices, the widget can open full-screen:
+
+```html
+<script ... data-mobile-fullscreen="true"></script>
+```
+
+### Responsive Triggers
+
+```javascript
+// Different behavior on mobile
+if (window.innerWidth < 768) {
+  // Mobile-specific logic
+  window.Chatoura.on('open', () => {
+    document.body.style.overflow = 'hidden';
+  });
+}
+```
+
+## Advanced Configuration
+
+### Multiple Agents
+
+Load different agents on different pages:
+
+```javascript
+const agentId = getAgentForPage(window.location.pathname);
+loadChatWidget(agentId);
+
+function getAgentForPage(path) {
+  if (path.includes('/sales')) return 'sales-agent-id';
+  if (path.includes('/support')) return 'support-agent-id';
+  return 'default-agent-id';
+}
+```
+
+### Passing Context
+
+Send page context with messages:
+
+```javascript
+window.Chatoura.setContext({
+  page: window.location.pathname,
+  product: 'Premium Plan',
+  referrer: document.referrer
+});
+```
+
+## Testing Customizations
+
+1. Make changes to your embed code
+2. Clear browser cache or use incognito mode
+3. Verify changes on your site
+4. Test on multiple devices and browsers
+5. Check that all custom triggers work
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="API methods not working">
+    - Ensure script has finished loading
+    - Use `window.Chatoura` after load event
+    - Check for JavaScript errors in console
+  </Accordion>
+  <Accordion title="Styles not applying">
+    - Verify hex color format is correct
+    - Clear browser cache
+    - Check for CSS conflicts (rare with Shadow DOM)
+  </Accordion>
+  <Accordion title="Events not firing">
+    - Verify event names are correct
+    - Ensure listeners are added after script loads
+    - Check for duplicate event listeners
+  </Accordion>
+</AccordionGroup>

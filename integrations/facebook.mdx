@@ -1,0 +1,115 @@
+---
+title: "Facebook Messenger"
+description: "Connect your AI agent to Facebook Messenger"
+---
+
+Let your AI agent respond to Facebook Messenger conversations automatically. Connect your Facebook Page to start handling customer inquiries 24/7.
+
+## Prerequisites
+
+- A Facebook Page for your business
+- Admin access to the Page
+- A Chatoura agent with training data
+
+## Connecting Facebook
+
+<Steps>
+  <Step title="Go to Integrations">
+    Navigate to **Integrations** > **Facebook**
+  </Step>
+  <Step title="Connect with Facebook">
+    Click **Connect Facebook** and log in to your Facebook account
+  </Step>
+  <Step title="Select your Page">
+    Choose the Facebook Page you want to connect
+  </Step>
+  <Step title="Grant permissions">
+    Allow Chatoura to manage messages for your Page
+  </Step>
+  <Step title="Confirm connection">
+    You'll see a success message when connected
+  </Step>
+</Steps>
+
+## Required Permissions
+
+Chatoura requests these permissions:
+
+| Permission | Purpose |
+|------------|---------|
+| `pages_messaging` | Send and receive messages |
+| `pages_read_engagement` | Read Page information |
+| `pages_manage_metadata` | Manage Page settings |
+
+## How It Works
+
+1. Customer sends message to your Facebook Page
+2. Message is received by Chatoura
+3. Your AI agent generates a response
+4. Response is sent back via Messenger
+
+## Settings
+
+### Response Settings
+
+| Setting | Description |
+|---------|-------------|
+| Auto-respond | Enable/disable automatic responses |
+| Response delay | Add natural delay before responding |
+| Away message | Message when agent is disabled |
+
+### Message Handling
+
+| Setting | Description |
+|---------|-------------|
+| Max response length | Limit response character count |
+| Split long messages | Break long responses into parts |
+
+## Viewing Sessions
+
+All Messenger sessions appear in:
+
+- **Chat History** with Facebook icon badge
+- Individual session message threads
+- Lead profiles (if lead capture is enabled)
+
+## Escalation
+
+When escalation is triggered:
+
+1. You receive a notification (email/Telegram)
+2. AI continues responding unless you pause the session
+3. You can respond directly on Facebook Messenger
+4. Pause the session in Chat History if you want to handle manually
+
+## Disconnecting
+
+1. Go to **Integrations** > **Facebook**
+2. Click **Disconnect**
+3. Confirm removal
+
+<Note>
+You can also disconnect from Facebook's Business Integrations settings.
+</Note>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Messages not being received">
+    - Verify the Page is connected (check green status)
+    - Ensure auto-respond is enabled
+    - Check if you have available credits
+    - Review Facebook Page settings for message restrictions
+  </Accordion>
+  <Accordion title="Responses not sending">
+    - Check your credit balance
+    - Verify the agent has training data
+    - Ensure the session isn't paused
+    - Review the conversation for any errors
+  </Accordion>
+  <Accordion title="Need to reconnect">
+    - Disconnect the current integration
+    - Wait a few seconds
+    - Reconnect following the setup steps
+  </Accordion>
+</AccordionGroup>

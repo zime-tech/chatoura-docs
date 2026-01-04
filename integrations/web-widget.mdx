@@ -1,0 +1,145 @@
+---
+title: "Web Widget"
+description: "Add a chat widget to your website"
+---
+
+The web widget lets visitors chat with your AI agent directly on your website. It's fully customizable and works on any website.
+
+## Quick Setup
+
+1. Go to **Integrations** > **Web Widget**
+2. Copy the embed code
+3. Paste it before the closing `</body>` tag on your website
+4. Your widget is live
+
+## Embed Code
+
+```html
+<script
+  src="https://widget.chatoura.com/embed.js"
+  data-agent-id="your-agent-id"
+  async
+></script>
+```
+
+## Customization
+
+### Appearance
+
+| Setting | Description |
+|---------|-------------|
+| Primary color | Widget button and header color |
+| Position | Bottom-right or bottom-left |
+| Welcome message | Initial greeting shown to visitors |
+| Placeholder text | Input field placeholder |
+
+### Behavior
+
+| Setting | Description |
+|---------|-------------|
+| Auto-open | Open widget automatically after delay |
+| Mobile display | Full-screen or floating on mobile |
+| Sound notifications | Play sound for new messages |
+
+## Advanced Configuration
+
+Pass additional options via data attributes:
+
+```html
+<script
+  src="https://widget.chatoura.com/embed.js"
+  data-agent-id="your-agent-id"
+  data-position="bottom-left"
+  data-primary-color="#6366F1"
+  async
+></script>
+```
+
+### Available Options
+
+| Attribute | Values | Default |
+|-----------|--------|---------|
+| `data-position` | `bottom-right`, `bottom-left` | `bottom-right` |
+| `data-primary-color` | Any hex color | Agent's theme |
+| `data-auto-open` | `true`, `false` | `false` |
+| `data-delay` | Milliseconds | `0` |
+
+## JavaScript API
+
+Control the widget programmatically:
+
+```javascript
+// Open the widget
+window.Chatoura.open();
+
+// Close the widget
+window.Chatoura.close();
+
+// Toggle open/closed
+window.Chatoura.toggle();
+
+// Send a message programmatically
+window.Chatoura.sendMessage("Hello!");
+```
+
+## Platform-Specific Setup
+
+<Tabs>
+  <Tab title="WordPress">
+    1. Go to **Appearance** > **Theme Editor**
+    2. Open `footer.php`
+    3. Paste embed code before `</body>`
+    4. Save changes
+
+    Or use a plugin like **Insert Headers and Footers**.
+  </Tab>
+  <Tab title="Shopify">
+    1. Go to **Online Store** > **Themes**
+    2. Click **Actions** > **Edit code**
+    3. Open `theme.liquid`
+    4. Paste embed code before `</body>`
+    5. Save
+  </Tab>
+  <Tab title="Webflow">
+    1. Go to **Project Settings**
+    2. Open **Custom Code** tab
+    3. Paste in **Footer Code**
+    4. Publish your site
+  </Tab>
+  <Tab title="React/Next.js">
+    Add to your layout component:
+
+    ```jsx
+    useEffect(() => {
+      const script = document.createElement('script');
+      script.src = 'https://widget.chatoura.com/embed.js';
+      script.setAttribute('data-agent-id', 'your-agent-id');
+      script.async = true;
+      document.body.appendChild(script);
+
+      return () => document.body.removeChild(script);
+    }, []);
+    ```
+  </Tab>
+</Tabs>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Widget not appearing">
+    - Verify the embed code is before `</body>`
+    - Check that the agent ID is correct
+    - Ensure no JavaScript errors in console
+    - Disable ad blockers temporarily
+  </Accordion>
+  <Accordion title="Widget loads slowly">
+    - The script loads asynchronously
+    - First load may take 1-2 seconds
+    - Subsequent visits use cached resources
+  </Accordion>
+  <Accordion title="Styling conflicts">
+    - Widget uses isolated styles (Shadow DOM)
+    - If issues persist, check for global CSS overrides
+    - Contact support with your URL
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,88 @@
+---
+title: "Websites"
+description: "Train your agent by crawling web pages"
+---
+
+Crawl your website to automatically train your AI agent on your web content.
+
+## How Website Crawling Works
+
+1. Enter a URL to start crawling
+2. The crawler visits the page and follows internal links
+3. Text content is extracted from each page
+4. Extracted content becomes training data
+
+## Adding a Website
+
+1. Go to **Knowledge Base** > **Websites**
+2. Enter the starting URL (e.g., `https://example.com`)
+3. Click **Crawl**
+4. Wait for crawling to complete
+5. Review discovered pages
+6. Click **Retrain** to update your agent
+
+## Crawl Settings
+
+### Link Following
+The crawler automatically follows internal links from your starting URL. Pages on other domains are not crawled.
+
+### Page Limits
+Crawling respects your plan's page limits. You can also manually limit pages in settings.
+
+## Viewing Crawled Pages
+
+After crawling completes, you can:
+- See all discovered URLs
+- View extracted content per page
+- Check character count
+- Remove individual pages
+
+## Updating Website Content
+
+When your website content changes:
+
+1. Go to **Knowledge Base** > **Websites**
+2. Click **Re-crawl** on the website
+3. New content will be extracted
+4. Click **Retrain** to update the agent
+
+<Note>
+Re-crawling replaces previous content. Deleted pages will be removed from training data.
+</Note>
+
+## What Gets Extracted
+
+| Extracted | Not Extracted |
+|-----------|---------------|
+| Main content | Navigation menus |
+| Headings | Footer links |
+| Paragraphs | Advertisements |
+| Lists | Scripts/code |
+| Tables | Images (alt text only) |
+
+## Best Practices
+
+- **Start with important pages** - Begin with product pages, FAQs, about us
+- **Avoid duplication** - Don't crawl the same content from multiple URLs
+- **Keep content current** - Re-crawl after major website updates
+- **Review extracted content** - Verify the right information was captured
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Pages not being discovered">
+    - Ensure pages are linked from the starting URL
+    - Check if pages require authentication
+    - Verify robots.txt isn't blocking the crawler
+  </Accordion>
+  <Accordion title="Wrong content extracted">
+    - Some pages may have complex layouts
+    - Dynamic content (JavaScript-loaded) may not be captured
+    - Consider adding content as a document instead
+  </Accordion>
+  <Accordion title="Crawl taking too long">
+    - Large sites take longer to crawl
+    - Consider starting with a specific section (e.g., `/docs/`)
+    - Check your page limit settings
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,177 @@
+---
+title: "Escalations"
+description: "Handle conversations that need human attention"
+---
+
+Escalations ensure important conversations get human attention. Configure triggers, notifications, and workflows to never miss critical customer interactions.
+
+## How Escalations Work
+
+1. **Trigger** - Condition is met (keyword, request, sentiment)
+2. **Notify** - You receive a notification
+3. **AI continues** - Agent keeps responding normally
+4. **Handle** - You can take over when ready
+
+<Note>
+The AI agent continues responding during escalation. You can optionally pause the session if you prefer to handle it manually.
+</Note>
+
+## Escalation Triggers
+
+### Automatic Triggers
+
+| Trigger | Description |
+|---------|-------------|
+| Keyword detection | Specific words like "speak to human" |
+| Negative sentiment | Frustrated or angry messages |
+| Repeated questions | Customer asking same thing multiple times |
+| Off-topic | Questions outside agent's knowledge |
+
+### Manual Triggers
+
+- Customer explicitly requests human
+- AI suggests escalation in response
+- You escalate from dashboard
+
+## Configuring Escalations
+
+1. Go to **Agents** > select agent > **Settings**
+2. Scroll to **Escalation Settings**
+3. Configure triggers and notifications
+4. Save changes
+
+### Trigger Keywords
+
+Add keywords that trigger escalation:
+
+```
+human
+agent
+representative
+speak to someone
+real person
+manager
+```
+
+### Sensitivity Settings
+
+| Setting | Description |
+|---------|-------------|
+| High | Escalate at first sign of frustration |
+| Medium | Balance between AI and human handling |
+| Low | Only escalate explicit requests |
+
+## Notifications
+
+Get notified when escalations happen:
+
+### Email Notifications
+
+1. Enable email notifications
+2. Add recipient email addresses
+3. Choose notification frequency
+
+### Telegram Notifications
+
+1. Connect your Telegram account
+2. Add the Chatoura bot
+3. Enable Telegram notifications
+
+### Notification Content
+
+Notifications include:
+
+- Customer name/identifier
+- Channel source
+- Trigger reason
+- Message preview
+- Direct link to conversation
+
+## Escalation Cases
+
+Go to **Escalation Cases** to view all escalations. The page shows:
+
+- List of all escalation cases with user name, agent, and status
+- Filter tabs: **All**, **Pending**, **Resolved**, **Failed**
+- Escalation count for each status
+
+### Escalation Details
+
+Click any escalation to see:
+
+- **Escalation Reason** - Why the escalation was triggered
+- **Session Status** - Shows if AI is active or paused
+- **Conversation Thread** - Full message history
+- **Details & Information** - User, channel, AI agent, timestamp, notification method
+
+### Actions
+
+| Action | Description |
+|--------|-------------|
+| Resolve | Mark the escalation as handled |
+| Failed | Mark as failed if unable to resolve |
+| Pause | Pause AI responses for this session |
+| Full History | Open the full session in Chat History |
+
+## Handling Escalations
+
+When you receive an escalation:
+
+<Steps>
+  <Step title="Open notification">
+    Click the link to view the escalation in Escalation Cases
+  </Step>
+  <Step title="Review context">
+    Read the conversation thread and escalation reason
+  </Step>
+  <Step title="Pause session (optional)">
+    Click **Pause** to stop AI responses while you handle it
+  </Step>
+  <Step title="Respond">
+    Reply directly through the channel (Facebook, Instagram, or web)
+  </Step>
+  <Step title="Resolve">
+    Click **Resolve** to mark the escalation as handled
+  </Step>
+</Steps>
+
+## Best Practices
+
+- **Respond quickly** - Escalated customers expect fast replies
+- **Review triggers regularly** - Adjust based on actual escalations
+- **Train your team** - Ensure everyone knows the process
+- **Update knowledge base** - Address common escalation causes
+- **Set expectations** - Let customers know response times
+
+## Escalation Metrics
+
+Track escalation performance:
+
+| Metric | Description |
+|--------|-------------|
+| Escalation rate | % of conversations escalated |
+| Response time | Average time to first human response |
+| Resolution time | Average time to resolve |
+| Common triggers | Most frequent escalation causes |
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Not receiving notifications">
+    - Verify email/Telegram is configured correctly
+    - Check spam folders for email
+    - Ensure Telegram bot is properly connected
+    - Verify notification settings are enabled
+  </Accordion>
+  <Accordion title="Too many escalations">
+    - Review trigger sensitivity settings
+    - Update knowledge base to handle common issues
+    - Adjust keyword triggers
+    - Train AI with Q&A for frequent topics
+  </Accordion>
+  <Accordion title="Want to pause AI during escalation?">
+    - Click **Pause** in the escalation details
+    - Or click **Full History** and pause from Chat History
+    - The session status will show when AI is paused
+  </Accordion>
+</AccordionGroup>

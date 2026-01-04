@@ -1,0 +1,125 @@
+---
+title: "Instagram"
+description: "Connect your AI agent to Instagram DMs"
+---
+
+Handle Instagram Direct Messages automatically with your AI agent. Connect your Instagram Business or Creator account to provide instant responses.
+
+## Prerequisites
+
+- An Instagram Business or Creator account
+- A connected Facebook Page
+- Admin access to both accounts
+- A Chatoura agent with training data
+
+<Note>
+Instagram messaging requires a connected Facebook Page. This is a Meta requirement.
+</Note>
+
+## Connecting Instagram
+
+<Steps>
+  <Step title="Go to Integrations">
+    Navigate to **Integrations** > **Instagram**
+  </Step>
+  <Step title="Connect with Facebook">
+    Click **Connect Instagram** (uses Facebook login)
+  </Step>
+  <Step title="Select accounts">
+    Choose your Facebook Page and linked Instagram account
+  </Step>
+  <Step title="Grant permissions">
+    Allow Chatoura to access Instagram messaging
+  </Step>
+  <Step title="Confirm connection">
+    You'll see a success message when connected
+  </Step>
+</Steps>
+
+## Required Permissions
+
+| Permission | Purpose |
+|------------|---------|
+| `instagram_basic` | Access account information |
+| `instagram_manage_messages` | Send and receive DMs |
+| `pages_messaging` | Required for Instagram API access |
+
+## Supported Message Types
+
+| Type | Receiving | Sending |
+|------|-----------|---------|
+| Text messages | ✓ | ✓ |
+| Images | ✓ | ✓ |
+| Story replies | ✓ | ✓ |
+| Story mentions | ✓ | ✓ |
+| Quick replies | - | - |
+
+## How It Works
+
+1. User sends a DM or replies to your Story
+2. Message is received by Chatoura
+3. Your AI agent generates a response
+4. Response is sent back as a DM
+
+## Settings
+
+### Response Settings
+
+| Setting | Description |
+|---------|-------------|
+| Auto-respond | Enable/disable automatic responses |
+| Response delay | Add natural delay before responding |
+| Handle story replies | Respond to Story replies |
+| Handle story mentions | Respond to Story mentions |
+
+## Story Interactions
+
+When someone replies to your Story or mentions you:
+
+- The message includes context about the Story
+- AI can reference the Story in its response
+- Works the same as regular DM conversations
+
+## Viewing Sessions
+
+All Instagram DMs appear in:
+
+- **Chat History** with Instagram icon badge
+- Individual session message threads
+- Lead profiles (if lead capture is enabled)
+
+## Escalation
+
+When escalation is triggered:
+
+1. You receive a notification (email/Telegram)
+2. AI continues responding unless you pause the session
+3. You can respond directly on Instagram DMs
+4. Pause the session in Chat History if you want to handle manually
+
+## Disconnecting
+
+1. Go to **Integrations** > **Instagram**
+2. Click **Disconnect**
+3. Confirm removal
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Can't connect Instagram">
+    - Ensure you have an Instagram Business or Creator account
+    - Verify your Facebook Page is linked to Instagram
+    - Check that you're an admin of both accounts
+    - Try disconnecting and reconnecting your Facebook Page first
+  </Accordion>
+  <Accordion title="Story replies not working">
+    - Verify "Handle story replies" is enabled
+    - Check that the Story is still active (not expired)
+    - Ensure permissions include story access
+  </Accordion>
+  <Accordion title="Messages delayed">
+    - Instagram API may have slight delays
+    - Check your response delay settings
+    - Verify credit balance is sufficient
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,72 @@
+---
+title: "Knowledge Base Overview"
+description: "Train your AI agent with business data"
+---
+
+The knowledge base is the foundation of your AI agent's intelligence. It contains all the information your agent uses to answer questions.
+
+## Data Sources
+
+<CardGroup cols={2}>
+  <Card title="Documents" icon="file" href="/knowledge/documents">
+    Upload PDFs, Word docs, and text files
+  </Card>
+  <Card title="Websites" icon="globe" href="/knowledge/websites">
+    Crawl and learn from web pages
+  </Card>
+  <Card title="Q&A Pairs" icon="comments" href="/knowledge/qanda">
+    Define specific question-answer combinations
+  </Card>
+  <Card title="Business Info" icon="building">
+    Add company description and key information
+  </Card>
+</CardGroup>
+
+## How Training Works
+
+1. **Add sources** - Upload documents, enter URLs, or add Q&A pairs
+2. **Processing** - Content is extracted and analyzed
+3. **Training** - Agent learns from the processed content
+4. **Ready** - Agent can now answer questions based on the knowledge
+
+## Managing Sources
+
+### View All Sources
+Go to **Knowledge Base** to see all training sources with:
+- Source type and name
+- Character count
+- Processing status
+- Last updated date
+
+### Remove Sources
+1. Click the delete icon next to any source
+2. Confirm removal
+3. Click **Retrain** to update the agent
+
+<Warning>
+Removing a source means the agent will no longer have that information. Always retrain after removing sources.
+</Warning>
+
+## Retraining
+
+After adding or removing sources, click **Retrain** to update your agent. Training typically takes 1-2 minutes depending on data volume.
+
+## Character Limits
+
+Each plan has a maximum character limit for training data:
+
+| Plan | Character Limit |
+|------|-----------------|
+| Starter | 100,000 |
+| Pro | 1,000,000 |
+| Business | Custom |
+
+Characters are counted across all sources combined.
+
+## Best Practices
+
+- **Quality over quantity** - Focus on accurate, relevant information
+- **Keep updated** - Regularly refresh with new content
+- **Be specific** - Include FAQs and common questions
+- **Avoid duplication** - Remove redundant information
+- **Test after training** - Verify new knowledge in Playground
